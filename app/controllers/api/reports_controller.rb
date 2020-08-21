@@ -25,6 +25,7 @@ class Api::ReportsController < ApplicationController
   def update
     @report = Report.find_by(id: params[:id])
     @report.suggested_fix = params[:suggested_fix] || @report.suggested_fix
+    @report.status = params[:suggested_fix] || @report.status
     @report.save
     render "show.json.jb"
   end
